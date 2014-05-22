@@ -1,3 +1,7 @@
+snippet log
+	echo('['.__class__.':'.__function__.':'.__line__."]${0}:".${1}."\n");
+snippet logfile
+	file_put_contents('/tmp/sniplog', '<'.date(Y-m-d h:i:s).'>['.__class__.':'.__function__.':'.__line__."]${0}:".${1}."\n",FILE_APPEND|LOCK_EX);
 snippet <?
 	<?php
 
