@@ -1,3 +1,12 @@
+# Original Function
+#{{{
+#def camel(word):
+#	if not word: return ''
+#	return word[0].upper() + word[1:]
+#def mixedCase(word):
+#	if not word: return ''
+#	return word[0].lower() + word[1:]
+#}}}
 # Debug message
 #{{{
 snippet log
@@ -57,11 +66,11 @@ snippet /*
 # Visibility
 #{{{
 snippet public
-	public ${0:static}
+	public ${1:static} ${0}
 snippet protected
-	protected ${0:static}
+	protected ${1:static} ${0}
 snippet private
-	private ${0:static}
+	private ${1:static} ${0}
 #}}}
 # Class
 #{{{
@@ -90,7 +99,7 @@ snippet function_public
 	/**
 	 * ${1}
 	 */
-	public${2:static} function ${3}(${4}) //{{{
+	public ${2:static }function ${3}(${4}) //{{{
 	{
 		${0}
 	} //}}}
@@ -98,7 +107,7 @@ snippet function_protected
 	/**
 	 * ${1}
 	 */
-	protected${2:static} function ${3}(${4}) //{{{
+	protected ${2:static }function ${3}(${4}) //{{{
 	{
 		${0}
 	} //}}}
@@ -106,14 +115,14 @@ snippet function_private
 	/**
 	 * ${1}
 	 */
-	private${2: static} function _${3}(${4}) //{{{
+	private$ {2:static }function _${3}(${4}) //{{{
 	{
 		${0}
 	} //}}}
-snippet setter
-	${1:public} function set${2}(${3:$2}) { $this->${0:$3} = $3; }
-snippet getter
-	${1:public} function get${2}() { return $this->${0:$2}; }
+#snippet setter
+#	${1:public} function set${2}(${3:mixedCase($2)}) { $this->${4:_$3} = $3; }
+#snippet getter
+#	${1:public} function get${2}() { return $this->${0:_mixedCase($2)}; }
 #}}}
 # PHP tags
 #{{{
