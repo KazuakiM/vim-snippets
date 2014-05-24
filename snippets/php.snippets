@@ -55,9 +55,14 @@ snippet /*
 	 */
 #}}}
 # Visibility
-# public
-# protected
-# private
+#{{{
+snippet public
+    public ${0:static}
+snippet protected
+    protected ${0:static}
+snippet private
+    private ${0:static}
+#}}}
 # Class
 #{{{
 snippet class
