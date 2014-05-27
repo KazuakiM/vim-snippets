@@ -1,11 +1,12 @@
+# vim:set fdm=marker:
 # Debug message
 #{{{
 snippet log
-	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'."$${0:$1}\n");
+	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
 snippet logBr
-	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'."$${0:$1}<br />");
+	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"<br />");
 snippet logFile
-	file_put_contents('/tmp/sniplog', '<'.date(Y-m-d h:i:s).'>['.__class__.':'.__function__.':'.__line__.']${1}:'."$${0:$1}\n",FILE_APPEND|LOCK_EX);
+	file_put_contents('/tmp/sniplog', '<'.date(Y-m-d h:i:s).'>['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n",FILE_APPEND|LOCK_EX);
 snippet pd
 	echo('<pre>');var_dump($${0});echo('</pre>');
 snippet pdd

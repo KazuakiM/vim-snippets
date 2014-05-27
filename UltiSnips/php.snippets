@@ -1,264 +1,251 @@
+# vim:set fdm=marker:
 priority -50
-
-## Snippets from SnipMate, taken from
-## https://github.com/scrooloose/snipmate-snippets.git
-
-snippet array "array"
-$${1:arrayName} = array('${2}' => ${3});${4}
+# Debug message
+#{{{
+snippet log "Echo debug helper in console"
+	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
 endsnippet
-
-snippet def "def"
-define('${1}'${2});${3}
+snippet logBr "Echo debug helper in HTML"
+	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"<br />");
 endsnippet
-
-snippet do "do"
-do {
-	${2:// code... }
-} while (${1:/* condition */});"
+snippet logFile "logfile output debug helper"
+	file_put_contents('/tmp/sniplog', '<'.date(Y-m-d h:i:s).'>['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n",FILE_APPEND|LOCK_EX);
 endsnippet
-
-snippet doc_f "doc_f"
-/**
- * $2
- * @return ${4:void}
- * @author ${5:`!v g:snips_author`}
- **/
-${1:public }function ${2:someFunc}(${3})
-{${6}
-}
+snippet pd "Dumb debug helper in HTML"
+	echo('<pre>');var_dump($${0});echo('</pre>');
 endsnippet
-
-snippet doc_i "doc_i"
-/**
- * $1
- * @package ${2:default}
- * @author ${3:`!v g:snips_author`}
- **/
-interface ${1:someClass}
-{${4}
-} // END interface $1"
+snippet pdd "Exit Dumb debug helper in HTML"
+	echo('<pre>');var_dump($${0});echo('</pre>');exit(0);
 endsnippet
-
-snippet else "else"
-else {
-	${1:// code...}
-}
+snippet vd "dumb debug helper"
+	var_dump($${0});
 endsnippet
-
-snippet for "for"
-for ($${2:i} = 0; $$2 < ${1:count}; $$2${3:++}) {
-	${4:// code...}
-}
+snippet vdd "Exit dumb debug helper"
+	var_dump($${0});exit(0);
 endsnippet
-
-snippet foreachk "foreachk"
-foreach ($${1:variable} as $${2:key} => $${3:value}){
-	${4:// code...}
-}
+#}}}
+# Reserved word
+#{{{
+snippet C "Env valiable COOKIE"
+	$_COOKIE['${0}']
 endsnippet
-
-snippet get "get"
-$_GET['${1}']${2}
+snippet E "Env valiable ENV"
+	$_ENV['${0}']
 endsnippet
-
-snippet if "if"
-if (${1:/* condition */}) {
-	${2:// code...}
-}
+snippet F "Env valiable FILES"
+	$_FILES['${0}']
 endsnippet
-
-snippet inc "inc"
-include '${1:file}';${2}
+snippet G "Env valiable GET"
+	$_GET['${0}']
 endsnippet
-
-snippet log "log"
-error_log(var_export(${1}, true));${2}
+snippet P "Env valiable POST"
+	$_POST['${0}']
 endsnippet
-
-snippet post "post"
-$_POST['${1}']${2}
+snippet R "Env valiable REQUEST"
+	$_REQUEST['${0}']
 endsnippet
-
-snippet req1 "req1"
-require_once '${1:file}';${2}
+snippet S "Env valiable SERVER"
+	$_SERVER['${0}']
 endsnippet
-
-snippet session "session"
-$_SESSION['${1}']${2}
+snippet SS "Env valiable SESSION"
+	$_SESSION['${0}']
 endsnippet
-
-snippet t "t"
-$${1:retVal} = (${2:condition}) ? ${3:a} : ${4:b};${5}
+#}}}
+# Method
+#{{{
+snippet inc "include"
+	include('${0}');
 endsnippet
-
-snippet var "var"
-var_export(${1});${2}
+snippet inc1 "include_once"
+	include_once('${0}');
 endsnippet
-
-snippet getter "PHP Class Getter" b
-/*
- * Getter for $1
- */
-public function get${1/\w+\s*/\u$0/}()
-{
-	return $this->$1;$2
-}
-$4
+snippet req "require"
+	require('${0}');
 endsnippet
-
-snippet setter "PHP Class Setter" b
-/*
- * Setter for $1
- */
-public function set${1/\w+\s*/\u$0/}($$1)
-{
-	$this->$1 = $$1;$3
-	${4:return $this;}
-}
-$0
+snippet req1 "require_once"
+	require_once('${0}');
 endsnippet
-
-snippet gs "PHP Class Getter Setter" b
-/*
- * Getter for $1
- */
-public function get${1/\w+\s*/\u$0/}()
-{
-	return $this->$1;$2
-}
-
-/*
- * Setter for $1
- */
-public function set${1/\w+\s*/\u$0/}($$1)
-{
-	$this->$1 = $$1;$3
-	${4:return $this;}
-}
-$0
+snippet def "define"
+	define('${1}', ${0});
 endsnippet
-
-snippet pub "Public function" b
-public function ${1:name}(${2:$param})
-{
-	${VISUAL}${3:return null;}
-}
-$0
+#}}}
+# Start Docblock
+#{{{
+snippet /* "Start Docblock"
+	/**
+	 * ${0}
+	 */
 endsnippet
-
-snippet pro "Protected function" b
-protected function ${1:name}(${2:$param})
-{
-	${VISUAL}${3:return null;}
-}
-$0
+#}}}
+# Visibility
+#{{{
+snippet public "Public Visibility"
+	public ${1:static} ${0}
 endsnippet
-
-snippet pri "Private function" b
-private function ${1:name}(${2:$param})
-{
-	${VISUAL}${3:return null;}
-}
-$0
+snippet protected "Protected Visibility"
+	protected ${1:static} ${0}
 endsnippet
-
-snippet pubs "Public static function" b
-public static function ${1:name}(${2:$param})
-{
-	${VISUAL}${3:return null;}
-}
-$0
+snippet private "Private Visibility"
+	private ${1:static} ${0}
 endsnippet
-
-snippet pros "Protected static function" b
-protected static function ${1:name}(${2:$param})
-{
-	${VISUAL}${3:return null;}
-}
-$0
-endsnippet
-
-snippet pris "Private static function" b
-private static function ${1:name}(${2:$param})
-{
-	${VISUAL}${3:return null;}
-}
-$0
-endsnippet
-
-snippet fu "Function snip" b
-function ${1:name}(${2:$param})
-{
-	${VISUAL}${3:return null;}
-}
-$0
-endsnippet
-
-snippet fore "Foreach loop"
-foreach ($${1:variable} as $${3:value}){
-	${VISUAL}${4}
-}
-$0
-endsnippet
-
-snippet new "New class instance" b
-$$1 = new $1($2);
-$0
-endsnippet
-
-snippet ife "if else"
-if (${1:/* condition */}) {
-	${2:// code...}
-} else {
-	${3:// code...}
-}
-$0
-endsnippet
-
-snippet class "Class declaration template" b
-/**
- * Class ${1:`!p snip.rv=snip.fn.split('.')[0]`}
- * @author ${2:`!v g:snips_author`}
- */
-class $1
-{
-	public function ${3:__construct}(${4:$options})
+#}}}
+# Class
+#{{{
+snippet class "Class default"
+	/**
+	 * ${1}
+	 */
+	class ${2:`vim_snippets#Filename()`}
 	{
-		${4:// code}
+		// Class valiable
+		//{{{
+		${3}
+		//}}}
+		/**
+		 * ${4}
+		 */
+		public function __construct(${5}) //{{{
+		{
+			${0}
+		} //}}}
 	}
-}
-$0
 endsnippet
-
-snippet construct "__construct()" b
-/**
- * @param $2mixed ${1/, /\n     * \@param mixed /g}
- */
-public function __construct(${1:$dependencies})
-{${1/\$(\w+)(, )*/\n        $this->$1 = $$1;/g}
-}
-$0
+#}}}
+# Function
+#{{{
+snippet function_public "Function Public"
+	/**
+	 * ${1}
+	 */
+	public ${2:static }function ${3}(${4}) //{{{
+	{
+		${0}
+	} //}}}
 endsnippet
-
-snippet pr "Dumb debug helper in HTML"
-echo '<pre>' . var_export($1, 1) . '</pre>';$0
+snippet function_protected "Function Protected"
+	/**
+	 * ${1}
+	 */
+	protected ${2:static }function ${3}(${4}) //{{{
+	{
+		${0}
+	} //}}}
 endsnippet
-
-snippet pc "Dumb debug helper in cli"
-var_export($1);$0
+snippet function_private "Function Private"
+	/**
+	 * ${1}
+	 */
+	private ${2:static }function _${3}(${4}) //{{{
+	{
+		${0}
+	} //}}}
 endsnippet
-
-# Symfony 2 based snippets
-snippet sfa "Symfony 2 Controller action"
-/**
-* @Route("/${1:route_name}", name="$1")
-* @Template()
-*/
-public function $1Action($2)
-{
-	$3
-	return ${4:array();}$0
-}
+snippet setter "Setter"
+	public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
+	${0}
 endsnippet
+snippet getter "Getter"
+	public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
+	${0}
+endsnippet
+snippet sgetter "Setter and Getter"
+	public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
+	public function get${1/\w+\s*/\u$0/}() { return $this->$1; }
+	${0}
+endsnippet
+#}}}
+# PHP tags
+#{{{
+snippet <? "PHP tags"
+	<?php
 
-# :vim:ft=snippets:
+	${0}
+endsnippet
+snippet <?= "PHP short tags"
+	<?= ${0} ?>
+endsnippet
+#}}}
+# foreach
+#{{{
+snippet foreach "foreach array as value"
+	foreach ($${1} as $${2}) {
+		${0}
+	}
+endsnippet
+snippet foreachk "foreach array as key => value"
+	foreach ($${1} as $${2:key} => $${3}) {
+		${0}
+	}
+endsnippet
+#}}}
+# for
+#{{{
+snippet for "for"
+	for ($${1} = 0; $$1 < ${2}; $$1${3:++}) {
+		${0}
+	}
+endsnippet
+#}}}
+# while
+#{{{
+snippet while "while"
+	while (${1}) {
+		${0}
+	}
+endsnippet
+#}}}
+# if
+#{{{
+snippet if "if"
+	if (${1}) {
+		${0}
+	}
+endsnippet
+snippet else "else"
+	else {
+		${0}
+	}
+endsnippet
+snippet elseif "elseif"
+	elseif (${1}) {
+		${0}
+	}
+endsnippet
+#}}}
+# switch
+#{{{
+snippet switch "switch"
+	switch ($${1}) {
+	case '${2}':
+		${3}
+		break;
+	${0}
+	default:
+		${4}
+		break;
+	}
+endsnippet
+snippet case "switch - case"
+	case '${1}':
+		${0}
+		break;
+endsnippet
+#}}}
+# try
+#{{{
+snippet try "try"
+	try {
+		${0}
+	} catch (${1:Exception} $e) {
+	} finally {
+	}
+endsnippet
+#}}}
+# array
+#{{{
+snippet array "array"
+	$${1} = array(
+		'${2}' => ${0},);
+endsnippet
+#}}}
+
