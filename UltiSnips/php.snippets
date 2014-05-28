@@ -142,16 +142,17 @@ snippet function_private "Function Private"
 endsnippet
 snippet setter "Setter"
 	public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
-	${0}
 endsnippet
 snippet getter "Getter"
 	public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
-	${0}
 endsnippet
 snippet sgetter "Setter and Getter"
 	public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
-	public function get${1/\w+\s*/\u$0/}() { return $this->$1; }
-	${0}
+	public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
+endsnippet
+snippet gsetter "Setter and Getter"
+	public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
+	public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
 endsnippet
 #}}}
 # PHP tags
@@ -236,7 +237,7 @@ endsnippet
 snippet try "try"
 	try {
 		${0}
-	} catch (${1:Exception} $e) {
+	} catch (Exception $e) {
 	} finally {
 	}
 endsnippet
