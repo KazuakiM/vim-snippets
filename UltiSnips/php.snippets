@@ -3,250 +3,237 @@ priority -50
 # Debug message
 #{{{
 snippet log "Echo debug helper in console"
-	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
+echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
 endsnippet
 snippet logBr "Echo debug helper in HTML"
-	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"<br />");
+echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"<br />");
 endsnippet
 snippet logFile "logfile output debug helper"
-	file_put_contents('/tmp/sniplog', '<'.date(Y-m-d h:i:s).'>['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n",FILE_APPEND|LOCK_EX);
+file_put_contents('/tmp/sniplog', '<'.date(Y-m-d h:i:s).'>['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n",FILE_APPEND|LOCK_EX);
 endsnippet
 snippet pd "Dumb debug helper in HTML"
-	echo('<pre>');var_dump($${0});echo('</pre>');
+echo('<pre>');var_dump($${0:valiable});echo('</pre>');
 endsnippet
 snippet pdd "Exit Dumb debug helper in HTML"
-	echo('<pre>');var_dump($${0});echo('</pre>');exit(0);
+echo('<pre>');var_dump($${0:valiable});echo('</pre>');exit(0);
 endsnippet
 snippet vd "dumb debug helper"
-	var_dump($${0});
+var_dump($${0:valiable});
 endsnippet
 snippet vdd "Exit dumb debug helper"
-	var_dump($${0});exit(0);
+var_dump($${0:valiable});exit(0);
 endsnippet
 #}}}
 # Reserved word
 #{{{
 snippet C "Env valiable COOKIE"
-	$_COOKIE['${0}']
+$_COOKIE['${0:key}']
 endsnippet
 snippet E "Env valiable ENV"
-	$_ENV['${0}']
+$_ENV['${0:key}']
 endsnippet
 snippet F "Env valiable FILES"
-	$_FILES['${0}']
+$_FILES['${0:key}']
 endsnippet
 snippet G "Env valiable GET"
-	$_GET['${0}']
+$_GET['${0:key}']
 endsnippet
 snippet P "Env valiable POST"
-	$_POST['${0}']
+$_POST['${0:key}']
 endsnippet
 snippet R "Env valiable REQUEST"
-	$_REQUEST['${0}']
+$_REQUEST['${0:key}']
 endsnippet
 snippet S "Env valiable SERVER"
-	$_SERVER['${0}']
+$_SERVER['${0:key}']
 endsnippet
 snippet SS "Env valiable SESSION"
-	$_SESSION['${0}']
+$_SESSION['${0:key}']
 endsnippet
 #}}}
 # Method
 #{{{
 snippet inc "include"
-	include('${0}');
+include('${0:file}');
 endsnippet
 snippet inc1 "include_once"
-	include_once('${0}');
+include_once('${0:file}');
 endsnippet
 snippet req "require"
-	require('${0}');
+require('${0:file}');
 endsnippet
 snippet req1 "require_once"
-	require_once('${0}');
+require_once('${0:file}');
 endsnippet
 snippet def "define"
-	define('${1}', ${0});
+define('${1:valiable}', ${0:value});
 endsnippet
 #}}}
 # Start Docblock
 #{{{
 snippet /* "Start Docblock"
-	/**
-	 * ${0}
-	 */
+/**
+ * ${0:document}
+ */
 endsnippet
 #}}}
 # Visibility
 #{{{
 snippet public "Public Visibility"
-	public ${1:static} ${0}
+public ${1:static} ${0}
 endsnippet
 snippet protected "Protected Visibility"
-	protected ${1:static} ${0}
+protected ${1:static} ${0}
 endsnippet
 snippet private "Private Visibility"
-	private ${1:static} ${0}
+private ${1:static} ${0}
 endsnippet
 #}}}
 # Class
 #{{{
 snippet class "Class default"
+/**
+ * ${1:document}
+ */
+class ${2:`vim_snippets#Filename()`}
+{
+	// Class valiable
+	//{{{
+	${3}
+	//}}}
 	/**
-	 * ${1}
+	 * ${4:document}
 	 */
-	class ${2:`vim_snippets#Filename()`}
+	public function __construct(${5}) //{{{
 	{
-		// Class valiable
-		//{{{
-		${3}
-		//}}}
-		/**
-		 * ${4}
-		 */
-		public function __construct(${5}) //{{{
-		{
-			${0}
-		} //}}}
-	}
+		${0://code...}
+	} //}}}
+}
 endsnippet
 #}}}
 # Function
 #{{{
 snippet function_public "Function Public"
-	/**
-	 * ${1}
-	 */
-	public ${2:static }function ${3}(${4}) //{{{
-	{
-		${0}
-	} //}}}
+/**
+ * ${1:document}
+ */
+public ${2:static }function ${3}(${4}) //{{{
+{
+	${0://code...}
+} //}}}
 endsnippet
 snippet function_protected "Function Protected"
-	/**
-	 * ${1}
-	 */
-	protected ${2:static }function ${3}(${4}) //{{{
-	{
-		${0}
-	} //}}}
+/**
+ * ${1:document}
+ */
+protected ${2:static }function ${3}(${4}) //{{{
+{
+	${0://code...}
+} //}}}
 endsnippet
 snippet function_private "Function Private"
-	/**
-	 * ${1}
-	 */
-	private ${2:static }function _${3}(${4}) //{{{
-	{
-		${0}
-	} //}}}
+/**
+ * ${1:document}
+ */
+private ${2:static }function _${3}(${4}) //{{{
+{
+	${0://code...}
+} //}}}
 endsnippet
 snippet setter "Setter"
-	public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
+public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
 endsnippet
 snippet getter "Getter"
-	public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
+public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
 endsnippet
 snippet sgetter "Setter and Getter"
-	public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
-	public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
+public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
+public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
 endsnippet
 snippet gsetter "Setter and Getter"
-	public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
-	public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
-endsnippet
-#}}}
-# PHP tags
-#{{{
-snippet <? "PHP tags"
-	<?php
-
-	${0}
-endsnippet
-snippet <?= "PHP short tags"
-	<?= ${0} ?>
+public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
+public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
 endsnippet
 #}}}
 # foreach
 #{{{
 snippet foreach "foreach array as value"
-	foreach ($${1} as $${2}) {
-		${0}
-	}
+foreach ($${1:variable} as $${2:value}) {
+	${0://code...}
+}
 endsnippet
 snippet foreachk "foreach array as key => value"
-	foreach ($${1} as $${2:key} => $${3}) {
-		${0}
-	}
+foreach ($${1:variable} as $${2:key} => $${3:value}) {
+	${0://code...}
+}
 endsnippet
 #}}}
 # for
 #{{{
 snippet for "for"
-	for ($${1} = 0; $$1 < ${2}; $$1${3:++}) {
-		${0}
-	}
+for ($${1:index} = 0; $$1 < ${2}; $$1${3:++}) {
+	${0://code...}
+}
 endsnippet
 #}}}
 # while
 #{{{
 snippet while "while"
-	while (${1}) {
-		${0}
-	}
+while (${1:/* condition */}) {
+	${0://code...}
+}
 endsnippet
 #}}}
 # if
 #{{{
 snippet if "if"
-	if (${1}) {
-		${0}
-	}
+if (${1:/* condition */}) {
+	${0://code...}
+}
 endsnippet
 snippet else "else"
-	else {
-		${0}
-	}
+else {
+	${0://code...}
+}
 endsnippet
 snippet elseif "elseif"
-	elseif (${1}) {
-		${0}
-	}
+elseif (${1:/* condition */}) {
+	${0://code...}
+}
 endsnippet
 #}}}
 # switch
 #{{{
 snippet switch "switch"
-	switch ($${1}) {
-	case '${2}':
-		${3}
-		break;
-	${0}
-	default:
-		${4}
-		break;
-	}
+switch ($${1:valiable}) {
+case '${2:/* condition */}':
+	${0://code...}
+	break;
+default:
+	break;
+}
 endsnippet
 snippet case "switch - case"
-	case '${1}':
-		${0}
-		break;
+case '${1:/* condition */}':
+	${0://code...}
+	break;
 endsnippet
 #}}}
 # try
 #{{{
 snippet try "try"
-	try {
-		${0}
-	} catch (Exception $e) {
-	} finally {
-	}
+try {
+	${0://code...}
+} catch (Exception $e) {
+} finally {
+}
 endsnippet
 #}}}
 # array
 #{{{
 snippet array "array"
-	$${1} = array(
-		'${2}' => ${0},);
+$${1:valiable} = array(
+	'${2:key}' => ${0:value},);
 endsnippet
 #}}}
 
