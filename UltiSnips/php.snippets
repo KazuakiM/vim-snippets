@@ -236,4 +236,77 @@ $${1:valiable} = array(
 	'${2:key}' => ${0:value},);
 endsnippet
 #}}}
-
+# SQL
+#{{{
+snippet sql "SQL"
+<<<SQL
+SQL;
+endsnippet
+snippet select "SELECT"
+SELECT ${1:colmn}
+endsnippet
+snippet from "FROM"
+ FROM ${1:table} ${2:abbreviation}
+endsnippet
+snippet from-inner "FROM INNER JOIN"
+ FROM ${1:table} ${2:abbreviation}
+ INNER JOIN ${3:table} ${4:abbreviation}
+ ON $2.${5:condition} = $4.${6:condition}
+endsnippet
+snippet from-left "FROM LEFT JOIN"
+ FROM ${1:table} ${2:abbreviation}
+ LEFT JOIN ${3:table} ${4:abbreviation}
+ ON $2.${5:condition} = $4.${6:condition}
+endsnippet
+snippet inner "INNER JOIN"
+ INNER JOIN ${1:table} ${2:abbreviation}
+ ON ${3:condition}
+endsnippet
+snippet left "LEFT JOIN"
+ LEFT JOIN ${1:table} ${2:abbreviation}
+ ON ${3:condition}
+endsnippet
+snippet where "WHERE"
+ WHERE ${1:condition}
+endsnippet
+snippet and "AND"
+ AND ${1:condition}
+endsnippet
+snippet or "OR"
+ OR ${1:condition}
+endsnippet
+snippet group-by "GROUP BY"
+ GROUP BY ${1:condition}
+endsnippet
+snippet limit "LIMIT"
+ LIMIT ${1:condition}
+endsnippet
+snippet insert-into "INSERT INTO"
+INSERT INTO ${1:table} ${2:(condition)}
+endsnippet
+snippet values "VALUES"
+ VALUES ${1:(condition)}
+endsnippet
+snippet duplicate "DUPLICATE"
+ ON DUPLICATE KEY UPDATE ${1:condition}
+endsnippet
+snippet update "UPDATE SET"
+UPDATE ${1:table} SET ${2:condition}
+endsnippet
+snippet update-inner "UPDATE INNER JOIN SET"
+UPDATE ${1:table} ${2:abbreviation}
+ INNER JOIN ${3:table ${4:abbreviation}
+ ON $2.${5:colmn} = $4.${6:colmn}
+ SET ${7:condition}
+endsnippet
+snippet delete "DELETE"
+DELETE FROM ${1:table} ${2:abbreviation}
+ WHERE ${3:condition}
+endsnippet
+snippet delete-inner "DELETE INNER JOIN"
+DELETE ${1:table} FROM $1 ${2:abbreviation}
+ INNER JOIN ${3:table} ${4:abbreviation}
+ ON $2.${5:colmn} = $4.${6:colmn}
+ WHERE ${7:condition}
+endsnippet
+#}}}
