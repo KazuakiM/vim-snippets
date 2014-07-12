@@ -121,6 +121,10 @@ snippet sgetter
 	public function set${1}($${2:$1}) { $this->${3:_$2} = $$2; }
 	public function get$1() { return $this->$3; }
 	${0}
+snippet gsetter
+	public function set${1}($${2:$1}) { $this->${3:_$2} = $$2; }
+	public function get$1() { return $this->$3; }
+	${0}
 #}}}
 # PHP tags
 #{{{
@@ -129,7 +133,7 @@ snippet <?
 
 	${0}
 snippet <?=
-	<?= ${0} ?>
+	<?= {$${0}} ?>
 #}}}
 # foreach
 #{{{
