@@ -240,6 +240,7 @@ endsnippet
 #{{{
 snippet sql "SQL"
 <<<SQL
+${1:sql}
 SQL;
 endsnippet
 snippet select "SELECT"
@@ -247,6 +248,7 @@ SELECT ${1:colmn}
 endsnippet
 snippet from "FROM"
  FROM ${1:table} ${2:abbreviation}
+ ${3:condition}
 endsnippet
 snippet from-inner "FROM INNER JOIN"
  FROM ${1:table} ${2:abbreviation}
