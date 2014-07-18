@@ -92,53 +92,67 @@ endsnippet
 # Class
 #{{{
 snippet class "Class default"
+<?php
 /**
- * ${1:document}
+ * ${1:`!v vim_snippets#Filename()`} file
  */
-class ${2:`vim_snippets#Filename()`}
+class $1
 {
-	// Class valiable
-	//{{{
-	${3}
+	//Class valiable {{{
+	${2:private}
 	//}}}
 	/**
-	 * ${4:document}
+	 * __construct
 	 */
-	public function __construct(${5}) //{{{
+	public function __construct(${3}) //{{{
 	{
 		${0://code...}
 	} //}}}
 }
+endsnippet
+snippet class_valiable "Class valiable"
+//Class valiable {{{
+${1:private}
+//}}}
 endsnippet
 #}}}
 # Function
 #{{{
 snippet function_public "Function Public"
 /**
- * ${1:document}
+ * $2
  */
-public ${2:static }function ${3}(${4}) //{{{
+public ${1:static }function ${2}(${3}) //{{{
 {
 	${0://code...}
 } //}}}
 endsnippet
 snippet function_protected "Function Protected"
 /**
- * ${1:document}
+ * $2
  */
-protected ${2:static }function ${3}(${4}) //{{{
+protected ${1:static }function ${2}(${3}) //{{{
 {
 	${0://code...}
 } //}}}
 endsnippet
 snippet function_private "Function Private"
 /**
- * ${1:document}
+ * $2
  */
-private ${2:static }function _${3}(${4}) //{{{
+private ${1:static }function _${2}(${3}) //{{{
 {
 	${0://code...}
 } //}}}
+endsnippet
+snippet construct "__construct"
+	/**
+	 * __construct
+	 */
+	public function __construct(${1}) //{{{
+	{
+		${0://code...}
+	} //}}}
 endsnippet
 snippet setter "Setter"
 public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
