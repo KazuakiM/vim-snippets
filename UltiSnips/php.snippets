@@ -1,5 +1,4 @@
 # vim:set fdm=marker:
-priority -50
 # Debug message
 #{{{
 snippet log "Echo debug helper in console"
@@ -140,9 +139,6 @@ private ${1:static }function _${2}(${3}) //{{{
 } //}}}
 endsnippet
 snippet construct "__construct"
-	/**
-	 * __construct
-	 */
 	public function __construct(${1}) //{{{
 	{
 		${0://code...}
@@ -166,12 +162,12 @@ endsnippet
 # foreach
 #{{{
 snippet foreach "foreach array as value"
-foreach ($${1:variable} as $${2:value}) {
+foreach ($${1:array} as $${2:value}) {
 	${0://code...}
 }
 endsnippet
 snippet foreachk "foreach array as key => value"
-foreach ($${1:variable} as $${2:key} => $${3:value}) {
+foreach ($${1:array} as $${2:key} => $${3:value}) {
 	${0://code...}
 }
 endsnippet
@@ -241,8 +237,11 @@ endsnippet
 # array
 #{{{
 snippet array "array"
-$${1:valiable} = array(
+$${1:array} = array(
 	'${2:key}' => ${0:value},);
+endsnippet
+snippet array_in "array_in"
+$${1:array}[] = $${0:valiable};
 endsnippet
 #}}}
 # SQL
