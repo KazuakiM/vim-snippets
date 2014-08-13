@@ -256,7 +256,6 @@ SELECT ${1:colmn}
 endsnippet
 snippet from "FROM"
  FROM ${1:table} ${2:abbreviation}
- ${3:condition}
 endsnippet
 snippet from-inner "FROM INNER JOIN"
  FROM ${1:table} ${2:abbreviation}
@@ -292,16 +291,20 @@ snippet limit "LIMIT"
  LIMIT ${1:condition}
 endsnippet
 snippet insert-into "INSERT INTO"
-INSERT INTO ${1:table} ${2:(condition)}
+INSERT INTO ${1:table} ${2:abbreviation} (${3:condition})
+endsnippet
+snippet insert-into-select "INSERT INTO SELECT"
+INSERT INTO ${1:table} ${2:abbreviation} (${3:condition})
+ SELECT ${4:condition}
 endsnippet
 snippet values "VALUES"
- VALUES ${1:(condition)}
+ VALUES (${1:condition})
 endsnippet
 snippet duplicate "DUPLICATE"
  ON DUPLICATE KEY UPDATE ${1:condition}
 endsnippet
 snippet update "UPDATE SET"
-UPDATE ${1:table} SET ${2:condition}
+UPDATE ${1:table} ${2:abbreviation} SET $2.${3:condition}
 endsnippet
 snippet update-inner "UPDATE INNER JOIN SET"
 UPDATE ${1:table} ${2:abbreviation}

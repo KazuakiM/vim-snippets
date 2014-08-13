@@ -244,4 +244,82 @@ snippet array_in
 	$${1:array}[] = $${0:value};
 
 #}}}
+# SQL
+#{{{
+snippet sql
+<<<SQL
+${0:sql}
+SQL;
 
+snippet select
+SELECT ${0:colmn}
+
+snippet from
+ FROM ${1:table} ${0:abbreviation}
+
+snippet from-inner
+ FROM ${1:table} ${2:abbreviation}
+ INNER JOIN ${3:table} ${4:abbreviation}
+ ON $2.${5:condition} = $4.${0:condition}
+
+snippet from-left
+ FROM ${1:table} ${2:abbreviation}
+ LEFT JOIN ${3:table} ${4:abbreviation}
+ ON $2.${5:condition} = $4.${0:condition}
+
+snippet inner
+ INNER JOIN ${1:table} ${2:abbreviation}
+ ON ${0:condition}
+
+snippet left
+ LEFT JOIN ${1:table} ${2:abbreviation}
+ ON ${0:condition}
+
+snippet where
+ WHERE ${0:condition}
+
+snippet and
+ AND ${0:condition}
+
+snippet or
+ OR ${0:condition}
+
+snippet group-by
+ GROUP BY ${0:condition}
+
+snippet limit
+ LIMIT ${0:condition}
+
+snippet insert-into
+INSERT INTO ${1:table} ${2:abbreviation} (${0:condition})
+
+snippet insert-into-select
+INSERT INTO ${1:table} ${2:abbreviation} (${3:condition})
+ SELECT ${0:condition}
+
+snippet values
+ VALUES (${0:condition})
+
+snippet duplicate
+ ON DUPLICATE KEY UPDATE ${0:condition}
+
+snippet update
+UPDATE ${1:table} ${2:abbreviation} SET $2.${3:condition}
+
+snippet update-inner
+UPDATE ${1:table} ${2:abbreviation}
+ INNER JOIN ${3:table} ${4:abbreviation}
+ ON $2.${5:colmn} = $4.${6:colmn}
+ SET ${7:condition}
+
+snippet delete
+DELETE FROM ${1:table} ${2:abbreviation}
+ WHERE ${3:condition}
+
+snippet delete-inner
+DELETE ${1:table} FROM $1 ${2:abbreviation}
+ INNER JOIN ${3:table} ${4:abbreviation}
+ ON $2.${5:colmn} = $4.${6:colmn}
+ WHERE ${7:condition}
+
+#}}}
