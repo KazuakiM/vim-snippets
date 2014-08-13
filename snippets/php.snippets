@@ -138,7 +138,7 @@ snippet function_private
 		${0://code...}
 	} //}}}
 
-snippet construct "__construct"
+snippet construct
 	public function __construct(${1}) //{{{
 	{
 		${0://code...}
@@ -225,6 +225,9 @@ snippet case
 #}}}
 # try
 #{{{
+snippet throw
+	throw new Exception(${0://message...});
+
 snippet try
 	try {
 		${0://code...}
