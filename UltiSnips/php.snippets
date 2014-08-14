@@ -251,8 +251,7 @@ endsnippet
 #{{{
 snippet sql "SQL"
 <<<SQL
-${1:sql}
-SQL;
+${0:delete space}SQL;
 endsnippet
 snippet select "SELECT"
 SELECT ${1:colmn}
@@ -298,10 +297,10 @@ INSERT INTO ${1:table} ${2:abbreviation} (${3:condition})
 endsnippet
 snippet insert-into-select "INSERT INTO SELECT"
 INSERT INTO ${1:table} ${2:abbreviation} (${3:condition})
- SELECT ${4:condition}
+  SELECT ${4:condition}
 endsnippet
 snippet values "VALUES"
- VALUES (${1:condition})
+VALUES (${1:condition})
 endsnippet
 snippet duplicate "DUPLICATE"
  ON DUPLICATE KEY UPDATE ${1:condition}
@@ -311,18 +310,18 @@ UPDATE ${1:table} ${2:abbreviation} SET $2.${3:condition}
 endsnippet
 snippet update-inner "UPDATE INNER JOIN SET"
 UPDATE ${1:table} ${2:abbreviation}
- INNER JOIN ${3:table ${4:abbreviation}
- ON $2.${5:colmn} = $4.${6:colmn}
- SET ${7:condition}
+  INNER JOIN ${3:table ${4:abbreviation}
+  ON $2.${5:colmn} = $4.${6:colmn}
+  SET ${7:condition}
 endsnippet
 snippet delete "DELETE"
 DELETE FROM ${1:table} ${2:abbreviation}
- WHERE ${3:condition}
+  WHERE ${3:condition}
 endsnippet
 snippet delete-inner "DELETE INNER JOIN"
 DELETE ${1:table} FROM $1 ${2:abbreviation}
- INNER JOIN ${3:table} ${4:abbreviation}
- ON $2.${5:colmn} = $4.${6:colmn}
- WHERE ${7:condition}
+  INNER JOIN ${3:table} ${4:abbreviation}
+  ON $2.${5:colmn} = $4.${6:colmn}
+  WHERE ${7:condition}
 endsnippet
 #}}}
