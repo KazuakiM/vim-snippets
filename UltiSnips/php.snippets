@@ -11,42 +11,42 @@ snippet logFile "logfile output debug helper"
 file_put_contents('/tmp/sniplog', '<'.date(Y-m-d h:i:s).'>['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n",FILE_APPEND|LOCK_EX);
 endsnippet
 snippet pd "Dumb debug helper in HTML"
-echo('<pre>');var_dump($${0:valiable});echo('</pre>');
+echo('<pre>');var_dump($${0:variable});echo('</pre>');
 endsnippet
 snippet pdd "Exit Dumb debug helper in HTML"
-echo('<pre>');var_dump($${0:valiable});echo('</pre>');exit(0);
+echo('<pre>');var_dump($${0:variable});echo('</pre>');exit(0);
 endsnippet
 snippet vd "dumb debug helper"
-var_dump($${0:valiable});
+var_dump($${0:variable});
 endsnippet
 snippet vdd "Exit dumb debug helper"
-var_dump($${0:valiable});exit(0);
+var_dump($${0:variable});exit(0);
 endsnippet
 #}}}
 # Reserved word
 #{{{
-snippet C "Env valiable COOKIE"
+snippet C "Env variable COOKIE"
 $_COOKIE['${0:key}']
 endsnippet
-snippet E "Env valiable ENV"
+snippet E "Env variable ENV"
 $_ENV['${0:key}']
 endsnippet
-snippet F "Env valiable FILES"
+snippet F "Env variable FILES"
 $_FILES['${0:key}']
 endsnippet
-snippet G "Env valiable GET"
+snippet G "Env variable GET"
 $_GET['${0:key}']
 endsnippet
-snippet P "Env valiable POST"
+snippet P "Env variable POST"
 $_POST['${0:key}']
 endsnippet
-snippet R "Env valiable REQUEST"
+snippet R "Env variable REQUEST"
 $_REQUEST['${0:key}']
 endsnippet
-snippet S "Env valiable SERVER"
+snippet S "Env variable SERVER"
 $_SERVER['${0:key}']
 endsnippet
-snippet SS "Env valiable SESSION"
+snippet SS "Env variable SESSION"
 $_SESSION['${0:key}']
 endsnippet
 #}}}
@@ -65,7 +65,7 @@ snippet req1 "require_once"
 require_once('${0:file}');
 endsnippet
 snippet def "define"
-define('${1:valiable}', ${0:value});
+define('${1:variable}', ${0:value});
 endsnippet
 #}}}
 # Start Docblock
@@ -94,7 +94,7 @@ snippet class "Class default"
 <?php
 class ${1:`!v vim_snippets#Filename()`}
 {
-	//Class valiable {{{
+	//Class variable {{{
 	${2:private}
 	//}}}
 	public function __construct(${3}) //{{{
@@ -103,8 +103,8 @@ class ${1:`!v vim_snippets#Filename()`}
 	} //}}}
 }
 endsnippet
-snippet class_valiable "Class valiable"
-//Class valiable {{{
+snippet class_variable "Class variable"
+//Class variable {{{
 ${1:private}
 //}}}
 endsnippet
@@ -209,7 +209,7 @@ endsnippet
 # switch
 #{{{
 snippet switch "switch"
-switch ($${1:valiable}) {
+switch ($${1:variable}) {
 case '${2:/* condition */}':
 	${0://code...}
 	break;
@@ -244,7 +244,7 @@ $${1:array} = array(
 	'${2:key}' => ${0:value},);
 endsnippet
 snippet array_in "array_in"
-$${1:array}[] = $${0:valiable};
+$${1:array}[] = $${0:variable};
 endsnippet
 #}}}
 # SQL
