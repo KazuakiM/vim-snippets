@@ -315,8 +315,8 @@ UPDATE ${1:table} ${2:abbreviation}
   SET ${7:condition}
 endsnippet
 snippet delete "DELETE"
-DELETE FROM ${1:table} ${2:abbreviation}
-  WHERE ${3:condition}
+DELETE FROM ${1:table}
+  WHERE ${2:condition}
 endsnippet
 snippet delete-inner "DELETE INNER JOIN"
 DELETE ${1:table} FROM $1 ${2:abbreviation}
