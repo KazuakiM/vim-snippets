@@ -1,0 +1,2 @@
+php_phpunit.snippets merge=ours
+php_symfony2.snippets merge=ours
