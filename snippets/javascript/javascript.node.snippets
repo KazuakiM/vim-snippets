@@ -3,7 +3,7 @@ snippet ex
 	module.exports = ${1};
 # require
 snippet re
-	var ${1} = require("${2:module_name}");
+	var ${1} = require('${2:module_name}');
 # EventEmitter
 snippet on
 	on('${1:event_name}', function(${2:stream}) {
@@ -29,7 +29,7 @@ snippet net
 		});
 	}).listen(${4:8124});
 # Stream snippets
-snippet p
+snippet pipe
 	pipe(${1:stream})${2}
 # Express snippets
 snippet eget
@@ -47,4 +47,3 @@ snippet stdout
 	process.stdout
 snippet stderr
 	process.stderr
-
