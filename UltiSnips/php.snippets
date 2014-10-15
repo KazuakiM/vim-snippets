@@ -1,5 +1,4 @@
-# Debug message
-#{{{
+# Debug message {{{
 snippet log "Echo debug helper in console"
 echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
 endsnippet
@@ -22,8 +21,7 @@ snippet vdd "Exit dumb debug helper"
 var_dump($${0:variable});exit(0);
 endsnippet
 #}}}
-# Reserved word
-#{{{
+# Reserved word {{{
 snippet C "Env variable COOKIE"
 $_COOKIE['${0:key}']
 endsnippet
@@ -49,8 +47,7 @@ snippet SS "Env variable SESSION"
 $_SESSION['${0:key}']
 endsnippet
 #}}}
-# Method
-#{{{
+# Method {{{
 snippet inc "include"
 include('${0:file}');
 endsnippet
@@ -67,16 +64,14 @@ snippet def "define"
 define('${1:variable}', ${0:value});
 endsnippet
 #}}}
-# Start Docblock
-#{{{
+# Start Docblock {{{
 snippet /* "Start Docblock"
 /**
  * ${0:document}
  */
 endsnippet
 #}}}
-# Visibility
-#{{{
+# Visibility {{{
 snippet public "Public Visibility"
 public ${1:static }${0}
 endsnippet
@@ -87,8 +82,7 @@ snippet private "Private Visibility"
 private ${1:static }${0}
 endsnippet
 #}}}
-# Class
-#{{{
+# Class {{{
 snippet class "Class default"
 <?php
 class ${1:`!v vim_snippets#Filename()`}
@@ -108,8 +102,7 @@ ${1:private}
 //}}}
 endsnippet
 #}}}
-# Function
-#{{{
+# Function {{{
 snippet public_function "Public Function"
 /**
  * $2
@@ -158,8 +151,7 @@ public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
 public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
 endsnippet
 #}}}
-# foreach
-#{{{
+# foreach {{{
 snippet foreach "foreach array as value"
 foreach ($${1:array} as $${2:value}) {
 	${0://code...}
@@ -171,24 +163,21 @@ foreach ($${1:array} as $${2:key} => $${3:value}) {
 }
 endsnippet
 #}}}
-# for
-#{{{
+# for {{{
 snippet for "for"
 for ($${1:index} = 0; $$1 < ${2}; $$1${3:++}) {
 	${0://code...}
 }
 endsnippet
 #}}}
-# while
-#{{{
+# while {{{
 snippet while "while"
 while (${1:/* condition */}) {
 	${0://code...}
 }
 endsnippet
 #}}}
-# if
-#{{{
+# if {{{
 snippet if "if"
 if (${1:/* condition */}) {
 	${0://code...}
@@ -205,8 +194,7 @@ elseif (${1:/* condition */}) {
 }
 endsnippet
 #}}}
-# switch
-#{{{
+# switch {{{
 snippet switch "switch"
 switch ($${1:variable}) {
 case '${2:/* condition */}':
@@ -222,8 +210,7 @@ case '${1:/* condition */}':
 	break;
 endsnippet
 #}}}
-# try
-#{{{
+# try {{{
 snippet throw "throw"
 	throw new Exception(${0://message...});
 endsnippet
@@ -236,8 +223,7 @@ try {
 }
 endsnippet
 #}}}
-# array
-#{{{
+# array {{{
 snippet array "array"
 $${1:array} = array(
 	'${2:key}' => ${0:value},);
@@ -246,8 +232,7 @@ snippet array_in "array_in"
 $${1:array}[] = $${0:variable};
 endsnippet
 #}}}
-# SQL
-#{{{
+# SQL {{{
 snippet sql "SQL"
 <<<SQL
 ${0:delete space}SQL;

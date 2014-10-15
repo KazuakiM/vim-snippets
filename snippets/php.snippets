@@ -1,6 +1,4 @@
-# vim:set fdm=marker:
-# Debug message
-#{{{
+# Debug message {{{
 snippet log
 	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
 
@@ -23,8 +21,7 @@ snippet vdd
 	var_dump($${0:variable});exit(0);
 
 #}}}
-# Reserved word
-#{{{
+# Reserved word {{{
 snippet C
 	$_COOKIE['${0:key}']
 
@@ -50,8 +47,7 @@ snippet SS
 	$_SESSION['${0:key}']
 
 #}}}
-# Method
-#{{{
+# Method {{{
 snippet inc
 	include('${0:file}');
 
@@ -68,16 +64,14 @@ snippet def
 	define('${1:variable}', ${0:file});
 
 #}}}
-# Start Docblock
-#{{{
+# Start Docblock {{{
 snippet /*
 	/**
 	 * ${0:document}
 	 */
 
 #}}}
-# Visibility
-#{{{
+# Visibility {{{
 snippet public
 	public ${1:static }${0}
 
@@ -88,8 +82,7 @@ snippet private
 	private ${1:static }${0}
 
 #}}}
-# Class
-#{{{
+# Class {{{
 snippet class
 	<?php
 	class ${1:`vim_snippets#Filename()`}
@@ -109,8 +102,7 @@ snippet class_variable
 	//}}}
 
 #}}}
-# Function
-#{{{
+# Function {{{
 snippet public_function
 	/**
 	 * $2
@@ -159,8 +151,7 @@ snippet gsetter
 	public function get$1() { return $this->$0; }
 
 #}}}
-# foreach
-#{{{
+# foreach {{{
 snippet foreach
 	foreach ($${1:array} as $${2:value}) {
 		${0://code...}
@@ -172,24 +163,21 @@ snippet foreachk
 	}
 
 #}}}
-# for
-#{{{
+# for {{{
 snippet for
 	for ($${1:index} = 0; $$1 < ${2}; $$1${3:++}) {
 		${0://code...}
 	}
 
 #}}}
-# while
-#{{{
+# while {{{
 snippet while
 	while (${1:/* condition */}) {
 		${0://code...}
 	}
 
 #}}}
-# if
-#{{{
+# if {{{
 snippet if
 	if (${1:/* condition */}) {
 		${0://code...}
@@ -206,8 +194,7 @@ snippet elseif
 	}
 
 #}}}
-# switch
-#{{{
+# switch {{{
 snippet switch
 	switch ($${1:variable}) {
 	case '${2:/* condition */}':
@@ -223,8 +210,7 @@ snippet case
 		break;
 
 #}}}
-# try
-#{{{
+# try {{{
 snippet throw
 	throw new Exception(${0://message...});
 
@@ -237,8 +223,7 @@ snippet try
 	}
 
 #}}}
-# array
-#{{{
+# array {{{
 snippet array
 	$${1:array} = array(
 		'${2:key}' => ${0:value},);
@@ -247,8 +232,7 @@ snippet array_in
 	$${1:array}[] = $${0:value};
 
 #}}}
-# SQL
-#{{{
+# SQL {{{
 snippet sql
 	<<<SQL
 	${0:sql}
