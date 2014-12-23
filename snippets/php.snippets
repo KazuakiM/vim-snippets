@@ -64,12 +64,6 @@ snippet def
 	define('${1:variable}', ${0:file});
 
 #}}}
-# Start Docblock {{{
-snippet /*
-	/**
-	 * ${0:document}
-	 */
-
 #}}}
 # Visibility {{{
 snippet public
@@ -104,27 +98,18 @@ snippet class_variable
 #}}}
 # Function {{{
 snippet public_function
-	/**
-	 * $2
-	 */
 	public ${1:static }function ${2}(${3}) //{{{
 	{
 		${0://code...}
 	} //}}}
 
 snippet protected_function
-	/**
-	 * $2
-	 */
 	protected ${1:static }function ${2}(${3}) //{{{
 	{
 		${0://code...}
 	} //}}}
 
 snippet private_function
-	/**
-	 * $2
-	 */
 	private ${1:static }function _${2}(${3}) //{{{
 	{
 		${0://code...}
