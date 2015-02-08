@@ -1,52 +1,41 @@
-snippet header standard Vim script file header
-	" File: ${1:`expand('%:t')`}
-	" Author: ${2:`g:snips_author`}
-	" Description: ${3}
-	${0:" Last Modified: `strftime("%B %d, %Y")`}
-snippet guard script reload guard
-	if exists('${1:did_`vim_snippets#Filename()`}') || &cp${2: || version < 700}
-		finish
-	endif
-	let $1 = 1${0}
-snippet f function
-	fun! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2:function_name}(${3})
+# Function {{{
+snippet function function
+	function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2}(${3}) "{{{
 		${0}
-	endf
-snippet t try ... catch statement
-	try
-		${1}
-	catch ${2}
-		${0}
-	endtry
-snippet for for ... in loop
-	for ${1} in ${2}
-		${0}
+	endfunction "}}}
+#}}}
+# for {{{
+snippet for for
+	for ${1:var} in ${2:list}
+		${0:"code...}
 	endfor
-snippet forkv for [key, value] in loop
-	for [${1},${2}] in items(${3})
-		${0}
-		unlet $1 $2
-	endfor
-snippet wh while loop
-	while ${1}
-		${0}
-	endw
-snippet if if statement
-	if ${1}
-		${0}
+#}}}
+# while {{{
+snippet while while
+	while ${1:"condition}
+		${0:"code...}
+	endwhile
+#}}}
+# if {{{
+snippet if if
+	if ${1:"condition}
+		${0:"code...}
 	endif
-snippet ife if ... else statement
-	if ${1}
-		${2}
+snippet else else
 	else
-		${0}
-	endif
-snippet au augroup ... autocmd block
-	augroup ${1:AU_NAME}
-		" this one is which you're most likely to use?
-		autocmd ${2:BufRead,BufNewFile} ${3:*.ext,*.ext3|<buffer[=N]>} ${0}
-	augroup end
-snippet bun Vundle.vim Plugin definition
-	Plugin '${0}'
-snippet plug Vundle.vim Plugin definition
-	Plugin '${0}'
+		${0:"code...}
+snippet elseif elseif
+	elseif ${1:"condition}
+		${0:"code...}
+#}}}
+# try {{{
+snippet try try
+	try
+		${1:"code...}
+	catch /${2:"code...}/
+		${0:"code...}
+	endtry
+snippet finally finally
+	finally
+		${0:"code...}
+#}}}
