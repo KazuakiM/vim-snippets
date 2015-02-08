@@ -1,49 +1,49 @@
 # Function {{{
 snippet function "function"
-	function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2}(${3}) "{{{
-		${0}
-	endfunction "}}}
+function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2}(${3}) "{{{
+	${0:"code...}
+endfunction "}}}
 endsnippet
 #}}}
 # for {{{
 snippet for "for"
-	for ${1:var} in ${2:list}
-		${0:"code...}
-	endfor
+for ${1:var} in ${2:list}
+	${0:"code...}
+endfor
 endsnippet
 #}}}
 # while {{{
 snippet while "while"
-	while ${1:"condition}
-		${0:"code...}
-	endwhile
+while ${1:"condition}
+	${0:"code...}
+endwhile
 endsnippet
 #}}}
 # if {{{
 snippet if "if"
-	if ${1:"condition}
-		${0:"code...}
-	endif
+if ${1:"condition}
+	${0:"code...}
+endif
 endsnippet
 snippet else "else"
-	else
-		${0:"code...}
+else
+	${0:"code...}
 endsnippet
 snippet elseif "elseif"
-	elseif ${1:"condition}
-		${0:"code...}
+elseif ${1:"condition}
+	${0:"code...}
 endsnippet
 #}}}
 # try {{{
 snippet try "try"
-	try
-		${1:"code...}
-	catch /${2:"code...}/
-		${0:"code...}
-	endtry
+try
+	${1:"code...}
+catch /${2:"code...}/
+	${0:"code...}
+endtry
 endsnippet
 snippet finally "finally"
-	finally
-		${0:"code...}
+finally
+	${0:"code...}
 endsnippet
 #}}}
