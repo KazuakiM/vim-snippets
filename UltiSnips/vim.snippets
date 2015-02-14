@@ -1,3 +1,21 @@
+# Class {{{
+snippet class "Class default"
+let s:save_cpo = &cpo
+set cpo&vim
+
+"Variable {{{
+"}}}
+function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2}(${3}) "{{{
+endfunction "}}}
+
+let &cpo = s:save_cpo
+unlet s:save_cpo
+endsnippet
+snippet class_variable "Class variable"
+"Variable {{{
+"}}}
+endsnippet
+#}}}
 # Function {{{
 snippet function "function"
 function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2}(${3}) "{{{
