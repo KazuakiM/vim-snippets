@@ -1,3 +1,4 @@
+# Table {{{
 snippet |||
 	| ${0:name} |     |
 	| :-- | :-- |
@@ -8,6 +9,8 @@ snippet table
 	| :-- | :-- |
 	|     |     |
 
+#}}}
+# Preview {{{
 snippet ```
 	\`\`\`${1:file type}
 	${0:Text}
@@ -18,6 +21,8 @@ snippet pre
 	${0:Text}
 	\`\`\`
 
+#}}}
+# Link {{{
 snippet link
 	[${1:Text}}](${0:http})
 
@@ -30,3 +35,5 @@ snippet image
 snippet img
 	![${1:Picture alt}](${2:http}${0/.+/ "/}${0:Opt Title}${0/.+/"/})
 
+#}}}
+# vim:fdl=0
