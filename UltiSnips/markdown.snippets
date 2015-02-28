@@ -1,53 +1,32 @@
-priority -50
-
-###########################
-# Sections and Paragraphs #
-###########################
-snippet sec "Section" b
-# ${1:Section Name} #
-$0
+snippet ||| "Table"
+| ${0:name} |     |
+| :-- | :-- |
+|     |     |
 endsnippet
-
-snippet ssec "Sub Section" b
-## ${1:Section Name} ##
-$0
+snippet table "Table"
+| ${0:name} |     |
+| :-- | :-- |
+|     |     |
 endsnippet
-
-snippet sssec "SubSub Section" b
-### ${1:Section Name} ###
-$0
+snippet ``` "Pre"
+\`\`\`${1:file type}
+${0:Text}
+\`\`\`
 endsnippet
-
-snippet par "Paragraph" b
-#### ${1:Paragraph Name} ####
-$0
+snippet pre "Pre"
+\`\`\`${1:file type}
+${0:Text}
+\`\`\`
 endsnippet
-
-snippet spar "Paragraph" b
-##### ${1:Paragraph Name} #####
-$0
+snippet link "Link"
+[${1:Text}}](${0:http})
 endsnippet
-
-################
-# Common stuff #
-################
-snippet link "Link to something"
-[${1:${VISUAL:Text}}](${3:http://${2:www.url.com}})$0
+snippet url "Link"
+[${1:Text}}](${0:http})
 endsnippet
-
+snippet image "Image"
+![${1:Picture alt}](${2:http}${0/.+/ "/}${0:Opt Title}${0/.+/"/})
+endsnippet
 snippet img "Image"
-![${1:pic alt}](${2:path}${3/.+/ "/}${3:opt title}${3/.+/"/})$0
+![${1:Picture alt}](${2:http}${0/.+/ "/}${0:Opt Title}${0/.+/"/})
 endsnippet
-
-snippet ilc "Inline Code" i
-\`$1\`$0
-endsnippet
-
-snippet cbl "Codeblock" b
-\`\`\`
-$1
-\`\`\`
-$0
-endsnippet
-
-# vim:ft=snippets:

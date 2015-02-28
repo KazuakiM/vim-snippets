@@ -1,139 +1,32 @@
-# Markdown
+snippet |||
+	| ${0:name} |     |
+	| :-- | :-- |
+	|     |     |
 
-# Includes octopress (http://octopress.org/) snippets
-
-# The suffix `c` stands for "Clipboard".
-
-snippet [
-	[${1:text}](http://${2:address})
-snippet [*
-	[${1:link}](${2:`@*`})
-snippet [c
-	[${1:link}](${2:`@+`})
-snippet ["
-	[${1:text}](http://${2:address} "${3:title}")
-snippet ["*
-	[${1:link}](${2:`@*`} "${3:title}")
-snippet ["c
-	[${1:link}](${2:`@+`} "${3:title}")
-snippet [:
-	[${1:id}]: http://${2:url}
-
-snippet [:*
-	[${1:id}]: ${2:`@*`}
-
-snippet [:c
-	[${1:id}]: ${2:`@+`}
-
-snippet [:"
-	[${1:id}]: http://${2:url} "${3:title}"
-
-snippet [:"*
-	[${1:id}]: ${2:`@*`} "${3:title}"
-
-snippet [:"c
-	[${1:id}]: ${2:`@+`} "${3:title}"
-
-snippet ![
-	![${1:alttext}](${2:/images/image.jpg})
-snippet ![*
-	![${1:alt}](${2:`@*`})
-snippet ![c
-	![${1:alt}](${2:`@+`})
-snippet !["
-	![${1:alttext}](${2:/images/image.jpg} "${3:title}")
-snippet !["*
-	![${1:alt}](${2:`@*`} "${3:title}")
-snippet !["c
-	![${1:alt}](${2:`@+`} "${3:title}")
-snippet ![:
-	![${1:id}]: ${2:url}
-
-snippet ![:*
-	![${1:id}]: ${2:`@*`}
-
-snippet ![:"
-	![${1:id}]: ${2:url} "${3:title}"
-
-snippet ![:"*
-	![${1:id}]: ${2:`@*`} "${3:title}"
-
-snippet ![:"c
-	![${1:id}]: ${2:`@+`} "${3:title}"
-
-snippet <
-	<http://${1:url}>
-snippet <*
-	<`@*`>
-snippet <c
-	<`@+`>
-snippet **
-	**${1:bold}**
-snippet __
-	__${1:bold}__
-snippet ===
-	`repeat('=', strlen(getline(line(".") - 1)) - strlen(getline('.')))`
-
-	${0}
-snippet -
-	-   ${0}
-snippet ---
-	`repeat('-', strlen(getline(line(".") - 1)) - strlen(getline('.')))`
-
-	${0}
-
-snippet blockquote
-	{% blockquote %}
-	${0:quote}
-	{% endblockquote %}
-
-snippet blockquote-author
-	{% blockquote ${1:author}, ${2:title} %}
-	${0:quote}
-	{% endblockquote %}
-
-snippet blockquote-link
-	{% blockquote ${1:author} ${2:URL} ${3:link_text} %}
-	${0:quote}
-	{% endblockquote %}
+snippet table
+	| ${0:name} |     |
+	| :-- | :-- |
+	|     |     |
 
 snippet ```
-	\`\`\`
-	${1:code}
-	\`\`\`
-
-# Language.
-snippet ```l
-	\`\`\`${1:language}
-	${2:code}
+	\`\`\`${1:file type}
+	${0:Text}
 	\`\`\`
 
-snippet codeblock-short
-	{% codeblock %}
-	${0:code_snippet}
-	{% endcodeblock %}
+snippet pre
+	\`\`\`${1:file type}
+	${0:Text}
+	\`\`\`
 
-snippet codeblock-full
-	{% codeblock ${1:title} lang:${2:language} ${3:URL} ${4:link_text} %}
-	${0:code_snippet}
-	{% endcodeblock %}
+snippet link
+	[${1:Text}}](${0:http})
 
-snippet gist-full
-	{% gist ${1:gist_id} ${0:filename} %}
+snippet url
+	[${1:Text}}](${0:http})
 
-snippet gist-short
-	{% gist ${0:gist_id} %}
+snippet image
+	![${1:Picture alt}](${2:http}${0/.+/ "/}${0:Opt Title}${0/.+/"/})
 
 snippet img
-	{% img ${1:class} ${2:URL} ${3:width} ${4:height} ${5:title_text} ${0:alt_text} %}
+	![${1:Picture alt}](${2:http}${0/.+/ "/}${0:Opt Title}${0/.+/"/})
 
-snippet youtube
-	{% youtube ${0:video_id} %}
-
-# The quote should appear only once in the text. It is inherently part of it.
-# See http://octopress.org/docs/plugins/pullquote/ for more info.
-
-snippet pullquote
-	{% pullquote %}
-	${1:text} {" ${2:quote} "} ${0:text}
-	{% endpullquote %}

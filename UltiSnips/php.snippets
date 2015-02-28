@@ -283,7 +283,7 @@ UPDATE ${1:table} ${2:abbreviation} SET $2.${3:condition}
 endsnippet
 snippet update_inner "UPDATE INNER JOIN SET"
 UPDATE ${1:table} ${2:abbreviation}
-  INNER JOIN ${3:table ${4:abbreviation}
+  INNER JOIN ${3:table} ${4:abbreviation}
   ON $2.${5:colmn} = $4.${6:colmn}
   SET ${7:condition}
 endsnippet
