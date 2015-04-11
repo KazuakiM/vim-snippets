@@ -119,18 +119,36 @@ snippet construct
 	} //}}}
 
 snippet setter
-	public function set${1}($${2:$1}) { $this->${0:_$2} = $$2; }
+	public function set${1}($${2:$1}) //{{{
+	{
+		$this->${0:_$2} = $$2;
+	} //}}}
 
 snippet getter
-	public function get${1}() { return $this->${0:_$1}; }
+	public function get${1}() //{{{
+	{
+		return $this->${0:_$1};
+	} //}}}
 
 snippet sgetter
-	public function set${1}($${2:$1}) { $this->${0:_$2} = $$2; }
-	public function get$1() { return $this->$0; }
+	public function set${1}($${2:$1}) //{{{
+	{
+		$this->${0:_$2} = $$2;
+	} //}}}
+	public function get${1}() //{{{
+	{
+		return $this->${0:_$1};
+	} //}}}
 
 snippet gsetter
-	public function set${1}($${2:$1}) { $this->${0:_$2} = $$2; }
-	public function get$1() { return $this->$0; }
+	public function set${1}($${2:$1}) //{{{
+	{
+		$this->${0:_$2} = $$2;
+	} //}}}
+	public function get${1}() //{{{
+	{
+		return $this->${0:_$1};
+	} //}}}
 
 #}}}
 # foreach {{{
@@ -210,8 +228,8 @@ snippet finally
 #}}}
 # array {{{
 snippet array
-	$${1:array} = array(
-		'${2:key}' => ${0:value},);
+	$${1:array} = [
+		'${2:key}' => ${0:value},];
 
 snippet array_in
 	$${1:array}[] = $${0:value};

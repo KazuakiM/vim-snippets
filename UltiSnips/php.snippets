@@ -119,18 +119,36 @@ snippet construct "__construct"
 	} //}}}
 endsnippet
 snippet setter "Setter"
-public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
+public function set${1/\w+\s*/\u$0/}($$1) //{{{
+{
+	$this->_$1 = $$1;
+} //}}}
 endsnippet
 snippet getter "Getter"
-public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
+public function get${1/\w+\s*/\u$0/}() //{{{
+{
+	return $this->_$1;
+} //}}}
 endsnippet
 snippet sgetter "Setter and Getter"
-public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
-public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
+public function set${1/\w+\s*/\u$0/}($$1) //{{{
+{
+	$this->_$1 = $$1;
+} //}}}
+public function get${1/\w+\s*/\u$0/}() //{{{
+{
+	return $this->_$1;
+} //}}}
 endsnippet
 snippet gsetter "Setter and Getter"
-public function set${1/\w+\s*/\u$0/}($$1) { $this->_$1 = $$1; }
-public function get${1/\w+\s*/\u$0/}() { return $this->_$1; }
+public function set${1/\w+\s*/\u$0/}($$1) //{{{
+{
+	$this->_$1 = $$1;
+} //}}}
+public function get${1/\w+\s*/\u$0/}() //{{{
+{
+	return $this->_$1;
+} //}}}
 endsnippet
 #}}}
 # foreach {{{
@@ -210,8 +228,8 @@ endsnippet
 #}}}
 # array {{{
 snippet array "array"
-$${1:array} = array(
-	'${2:key}' => ${0:value},);
+$${1:array} = [
+	'${2:key}' => ${0:value},];
 endsnippet
 snippet array_in "array_in"
 $${1:array}[] = $${0:variable};
