@@ -2,6 +2,9 @@
 snippet log "Echo debug helper in console"
 echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
 endsnippet
+snippet logg "Exit Echo debug helper in console"
+echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");exit(9);
+endsnippet
 snippet logBr "Echo debug helper in HTML"
 echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"<br />");
 endsnippet

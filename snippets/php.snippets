@@ -2,6 +2,9 @@
 snippet log
 	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
 
+snippet logg
+	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");exit(9);
+
 snippet logBr
 	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"<br />");
 
