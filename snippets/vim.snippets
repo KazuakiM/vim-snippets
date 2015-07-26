@@ -10,7 +10,7 @@ snippet class
 
 	"Variable {{{
 	"}}}
-	function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2}(${3}) "{{{
+	function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2}(${3}) abort "{{{
 	endfunction "}}}
 
 	let &cpo = s:save_cpo
@@ -23,7 +23,7 @@ snippet class_variable
 #}}}
 # Function {{{
 snippet function
-	function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2}(${3}) "{{{
+	function! ${1:`expand('%') =~ 'autoload' ? substitute(matchstr(expand('%:p'),'autoload/\zs.*\ze.vim'),'[/\\]','#','g').'#' : ''`}${2}(${3}) abort "{{{
 		${0}
 	endfunction "}}}
 
