@@ -1,15 +1,18 @@
 # Debug message {{{
 snippet log
-	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
+	echo('['. __class__ .':'. __function__ .':'. __line__ ."]${1}:{${0:$1}}\n");
 
 snippet logg
-	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");exit(9);
+	echo('['. __class__ .':'. __function__ .':'. __line__ ."]${1}:{${0:$1}}\n");exit(9);
 
-snippet logBr
-	echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"<br />");
+snippet logmsg
+	'['. __class__ .':'. __function__ .':'. __line__ ."]${0}
 
-snippet logFile
-	file_put_contents('/tmp/sniplog', '<'.date('Y-m-d H:i:s').'>['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n",FILE_APPEND|LOCK_EX);
+snippet logbr
+	echo('['. __class__ .':'. __function__ .':'. __line__ ."]${1}:{${0:$1}}<br />");
+
+snippet logfile
+	file_put_contents('/tmp/sniplog', '<'.date('Y-m-d H:i:s').'>['. __class__ .':'. __function__ .':'. __line__ ."]${1}:{${0:$1}}\n",FILE_APPEND|LOCK_EX);
 
 snippet pd
 	echo('<pre>');var_dump($${0:variable});echo('</pre>');

@@ -1,15 +1,18 @@
 # Debug message {{{
 snippet log "Echo debug helper in console"
-echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");
+echo('['. __class__ .':'. __function__ .':'. __line__ ."]${1}:{${0:$1}}\n");
 endsnippet
 snippet logg "Exit Echo debug helper in console"
-echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n");exit(9);
+echo('['. __class__ .':'. __function__ .':'. __line__ ."]${1}:{${0:$1}}\n"); exit(9);
 endsnippet
-snippet logBr "Echo debug helper in HTML"
-echo('['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"<br />");
+snippet logmsg "Log template"
+'['. __class__ .':'. __function__ .':'. __line__ ."]${0}
 endsnippet
-snippet logFile "logfile output debug helper"
-file_put_contents('/tmp/sniplog', '<'.date('Y-m-d H:i:s').'>['.__class__.':'.__function__.':'.__line__.']${1}:'.${0:$1}"\n",FILE_APPEND|LOCK_EX);
+snippet logbr "Echo debug helper in HTML"
+echo('['. __class__ .':'. __function__ .':'. __line__ ."]${1}:{${0:$1}}<br />");
+endsnippet
+snippet logfile "Output logfile debug helper"
+file_put_contents('/tmp/sniplog', '<'. date('Y-m-d H:i:s') .'>['. __class__ .':'. __function__ .':'. __line__ ."]${1}:{${0:$1}}\n", FILE_APPEND|LOCK_EX);
 endsnippet
 snippet pd "Dump debug helper in HTML"
 echo('<pre>');var_dump($${0:variable});echo('</pre>');
