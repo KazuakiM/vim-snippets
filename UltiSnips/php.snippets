@@ -1,18 +1,18 @@
 # Debug message {{{
 snippet log "Echo debug helper in console"
-echo('['. __class__ .':'. __function__ .':'. __line__ .']${1}:'. print_r(${0:$1}, true) ."\n");
+echo('['. __class__ .':'. __function__ .':'. __line__ .']${1}:'. print_r($${0:$1}, true) ."\n");
 endsnippet
 snippet logg "Exit Echo debug helper in console"
-echo('['. __class__ .':'. __function__ .':'. __line__ .']${1}:'. print_r(${0:$1}, true) ."\n"); exit(9);
+echo('['. __class__ .':'. __function__ .':'. __line__ .']${1}:'. print_r($${0:$1}, true) ."\n"); exit(9);
 endsnippet
 snippet logmsg "Log template"
-'['. __class__ .':'. __function__ .':'. __line__ .']${1}:'. print_r(${0}, true)
+'['. __class__ .':'. __function__ .':'. __line__ .']:'
 endsnippet
 snippet logbr "Echo debug helper in HTML"
-echo('['. __class__ .':'. __function__ .':'. __line__ ..']${1}:'. print_r(${0}, true) .'<br />');
+echo('['. __class__ .':'. __function__ .':'. __line__ ..']${1}:'. print_r($${0}, true) .'<br />');
 endsnippet
 snippet logfile "Output logfile debug helper"
-file_put_contents('/tmp/sniplog', '<'. date('Y-m-d H:i:s') .'>['. __class__ .':'. __function__ .':'. __line__ .']${1}:'. print_r(${0:$1}, true) ."\n", FILE_APPEND|LOCK_EX);
+file_put_contents('/tmp/sniplog', '<'. date('Y-m-d H:i:s') .'>['. __class__ .':'. __function__ .':'. __line__ .']${1}:'. print_r($${0:$1}, true) ."\n", FILE_APPEND|LOCK_EX);
 endsnippet
 snippet pd "Dump debug helper in HTML"
 echo('<pre>');var_dump($${0:variable});echo('</pre>');
