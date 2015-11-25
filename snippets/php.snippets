@@ -88,9 +88,10 @@ snippet class
 	{
 		// Class variable {{{
 		//}}}
+	
 		public function __construct(${2}) //{{{
 		{
-			${0://code...}
+			${0:parent::__construct();}
 		} //}}}
 	}
 
@@ -121,7 +122,7 @@ snippet private_function
 snippet construct
 	public function __construct(${1}) //{{{
 	{
-		${0://code...}
+		${0:parent::__construct();}
 	} //}}}
 
 snippet setter
