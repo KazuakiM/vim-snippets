@@ -246,7 +246,7 @@ snippet array_in
 snippet csv
 	$mp = fopen('php://memory', 'bw+');
 	foreach (${$1:array} as $${2:value}) {
-	    fputcsv($mp, $$2, ${3:','}, ${4:'"'});
+		fputcsv($mp, $$2, ${3:','}, ${4:'"'});
 	}
 	rewind($mp);
 	${0://$buf = str_replace("\n", "\r\n", stream_get_contents($mp));}
